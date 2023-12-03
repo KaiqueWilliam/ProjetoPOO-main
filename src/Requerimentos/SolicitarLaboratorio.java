@@ -4,7 +4,6 @@ import Execução.Impressao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -17,7 +16,7 @@ public class SolicitarLaboratorio {
      * de chamar o metodo imprimir @author Murilo
      */
     static Scanner scan = new Scanner(System.in);
-    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
     static SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("HH:mm");
 
     public void Usuario() {
@@ -66,9 +65,9 @@ public class SolicitarLaboratorio {
             Date horaUser = simpleDateFormat1.parse(scan.next());
             encerraPrograma(String.valueOf(horaUser));
             System.out.print("Informe os minutos que deseja usar o laboratorio? ");
-            Integer minutoUser =scan.nextInt();
+            String minutoUser = scan.next();
             System.out.println("");
-            encerraPrograma(String.valueOf(minutoUser));
+            encerraPrograma(minutoUser);
             validarSolicitacao.validaReserva();
             impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, horaUser, minutoUser);
         } catch (ParseException p) {
